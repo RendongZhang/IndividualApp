@@ -11,10 +11,17 @@ import UIKit
 class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
-    //hardcode initialize 
-    var vg = [["A","200"],["B","100000"],["C","3"],["D","9978"]]
+  
+    
     override func viewDidLoad() {
+        let itemArchiveURL: URL = {
+        let documentDirectories = FileManager.default.urls(for: .documentDirectory,
+        in: .userDomainMask)
+        let documentDirectory = documentDirectories.first!
+        return documentDirectory.appendingPathComponent("items.archive")
+        }()
         super.viewDidLoad()
+        self.tableView.reloadData()
 
         // Do any additional setup after loading the view.
     }
@@ -31,7 +38,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.getName = vg[indexPath.row][0]
-        vc.getNumPlayers = vg[indexPath.row][1]
+        vc.getSales = vg[indexPath.row][1]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -43,7 +50,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             // ask user to confirm
-            let item = self.vg[indexPath.row]
+            let item = vg[indexPath.row]
             let title = "Delete \(item[0])?"
             let message = "Are you sure you want to delete this item?"
             let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
@@ -51,7 +58,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
             ac.addAction(cancelAction)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
             // remove the item from the store
-            self.vg.remove(at: indexPath.item)
+            vg.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
             })
@@ -69,5 +76,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.tableView.isEditing = !self.tableView.isEditing
         sender.title =  (self.tableView.isEditing) ? "Done" : "Edit"
     }
+
+    
 }
 

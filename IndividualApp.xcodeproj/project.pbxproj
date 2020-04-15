@@ -15,7 +15,8 @@
 		5F4F3130242F9846001578A1 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F312F242F9846001578A1 /* Cell.swift */; };
 		5F4F3136242FAA74001578A1 /* VideoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F3135242FAA74001578A1 /* VideoGameViewController.swift */; };
 		5F4F3138242FB474001578A1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F3137242FB474001578A1 /* DetailViewController.swift */; };
-		5F86040C24476622008F6BDE /* vgsales.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5F86040B24476622008F6BDE /* vgsales.csv */; };
+		5F86040E24478BCC008F6BDE /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86040D24478BCC008F6BDE /* ComposeViewController.swift */; };
+		5F8604102447A6BD008F6BDE /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86040F2447A6BD008F6BDE /* data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		5F4F312F242F9846001578A1 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		5F4F3135242FAA74001578A1 /* VideoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGameViewController.swift; sourceTree = "<group>"; };
 		5F4F3137242FB474001578A1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		5F86040B24476622008F6BDE /* vgsales.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vgsales.csv; path = ../../../../Downloads/vgsales.csv; sourceTree = "<group>"; };
+		5F86040D24478BCC008F6BDE /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		5F86040F2447A6BD008F6BDE /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,6 @@
 		5F4F311A242F83AE001578A1 /* IndividualApp */ = {
 			isa = PBXGroup;
 			children = (
-				5F86040B24476622008F6BDE /* vgsales.csv */,
 				5F4F311B242F83AE001578A1 /* AppDelegate.swift */,
 				5F4F311D242F83AE001578A1 /* SceneDelegate.swift */,
 				5F4F3121242F83AE001578A1 /* Main.storyboard */,
@@ -72,6 +73,8 @@
 				5F4F312F242F9846001578A1 /* Cell.swift */,
 				5F4F3135242FAA74001578A1 /* VideoGameViewController.swift */,
 				5F4F3137242FB474001578A1 /* DetailViewController.swift */,
+				5F86040D24478BCC008F6BDE /* ComposeViewController.swift */,
+				5F86040F2447A6BD008F6BDE /* data.swift */,
 			);
 			path = IndividualApp;
 			sourceTree = "<group>";
@@ -136,7 +139,6 @@
 			files = (
 				5F4F3128242F83AE001578A1 /* LaunchScreen.storyboard in Resources */,
 				5F4F3125242F83AE001578A1 /* Assets.xcassets in Resources */,
-				5F86040C24476622008F6BDE /* vgsales.csv in Resources */,
 				5F4F3123242F83AE001578A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +153,9 @@
 				5F4F3136242FAA74001578A1 /* VideoGameViewController.swift in Sources */,
 				5F4F3130242F9846001578A1 /* Cell.swift in Sources */,
 				5F4F3138242FB474001578A1 /* DetailViewController.swift in Sources */,
+				5F86040E24478BCC008F6BDE /* ComposeViewController.swift in Sources */,
 				5F4F311C242F83AE001578A1 /* AppDelegate.swift in Sources */,
+				5F8604102447A6BD008F6BDE /* data.swift in Sources */,
 				5F4F311E242F83AE001578A1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

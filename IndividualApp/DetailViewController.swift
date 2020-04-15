@@ -10,15 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var getName = String()
-    var getNumPlayers = String()
+    var getSales = String()
+
     @IBOutlet weak var Name: UILabel!
-    @IBOutlet weak var NumPlayers: UILabel!
+    @IBOutlet weak var Sales: UILabel!
     @IBOutlet weak var Company: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        Name.text! = "Name :" + getName
-        NumPlayers.text! = "Number of players : " + getNumPlayers
-        Company.text! = "Company : RZ"
+        Name.text! =  getName
+        Sales.text! =  getSales
+        Company.text! = "RZ"
         // Do any additional setup after loading the view.
     }
     
