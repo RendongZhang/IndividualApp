@@ -9,6 +9,8 @@
 import UIKit
 
 class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
+    
     //hardcode initialize 
     var vg = [["A","200"],["B","100000"],["C","3"],["D","9978"]]
     override func viewDidLoad() {
@@ -32,6 +34,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         vc.getNumPlayers = vg[indexPath.row][1]
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObj = vg[sourceIndexPath.item]
         vg.remove(at: sourceIndexPath.item)
@@ -45,16 +48,8 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     @IBAction func editAction(_ sender: UIBarButtonItem) {
-        if isEditing {
-            sender.title = "Done"
-            // turn off editing mode
-            setEditing(false, animated: true)
-        } else {
-            sender.title = "Edit"
-            // ender editing mode
-            setEditing(true, animated: true)
-        }
-        
+        self.tableView.isEditing = !self.tableView.isEditing
+        sender.title =  (self.tableView.isEditing) ? "Done" : "Edit"
     }
 }
 

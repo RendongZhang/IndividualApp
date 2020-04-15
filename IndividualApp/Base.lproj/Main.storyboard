@@ -66,11 +66,14 @@
                     <navigationItem key="navigationItem" title="VideoGame and its players" id="c36-ut-n80">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="x0u-d2-WBm">
                             <connections>
-                                <action selector="editAction:" destination="BYZ-38-t0r" id="2xb-vg-0rB"/>
+                                <action selector="editAction:" destination="BYZ-38-t0r" id="fhi-4v-Ews"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tQ7-C7-PVy"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="PLN-rd-3s1" id="Wi8-HV-rks"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,7 +100,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7l-M8-Irt">
-                                        <rect key="frame" x="0.0" y="100" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="100" width="374" height="97"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Zfy-3k-sZP"/>
                                         </constraints>
@@ -106,7 +109,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGE-OW-7Qa">
-                                        <rect key="frame" x="0.0" y="200" width="374" height="97"/>
+                                        <rect key="frame" x="0.0" y="197" width="374" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="mpZ-ha-YpZ"/>
                                         </constraints>
