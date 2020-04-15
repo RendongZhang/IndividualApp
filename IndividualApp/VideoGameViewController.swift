@@ -42,8 +42,26 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            vg.remove(at: indexPath.item)
+            // ask user to confirm
+            let item = self.vg[indexPath.row]
+            let title = "Delete \(item[0])?"
+            let message = "Are you sure you want to delete this item?"
+            let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+            // remove the item from the store
+            self.vg.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            })
+            ac.addAction(deleteAction)
+            // put up the controller as a modal view
+            present(ac, animated: true, completion: nil)
+            
+//            vg.remove(at: indexPath.item)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
         }
     }
     
