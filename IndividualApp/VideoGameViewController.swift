@@ -14,12 +14,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     var dataStore = UserDefaults.standard
     
     override func viewDidLoad() {
-        let itemArchiveURL: URL = {
-        let documentDirectories = FileManager.default.urls(for: .documentDirectory,
-        in: .userDomainMask)
-        let documentDirectory = documentDirectories.first!
-        return documentDirectory.appendingPathComponent("items.archive")
-        }()
+
         super.viewDidLoad()
         
         self.tableView.reloadData()
@@ -27,19 +22,19 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         // Do any additional setup after loading the view.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
+        let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
         return vgArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
-            var vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoGameCell", for: indexPath) as! Cell
-        cell.Name.text = vgArray[indexPath.row][0]
-        cell.NumPlayers.text = vgArray[indexPath.row][1]
-        return cell
+            let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VideoGameCell", for: indexPath) as! Cell
+            cell.Name.text = vgArray[indexPath.row][0]
+            cell.NumPlayers.text = vgArray[indexPath.row][1]
+            return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
+        let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.getName = vgArray[indexPath.row][0]
