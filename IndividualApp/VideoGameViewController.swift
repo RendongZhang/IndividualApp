@@ -14,15 +14,25 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     var dataStore = UserDefaults.standard
     
     override func viewDidLoad() {
+//
+       
 
+//        self.tableView.reloadData()
+//        let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
+//        if vgArray.count < tableView.numberOfRows(inSection: 0){
+//
+//            tableView.deleteRows(at: [IndexPath(row: UserDefaults.standard.value(forKey: "deletedRow") as! Int, section: 0)], with: .automatic)
+//        }
+        print("test0")
         super.viewDidLoad()
-        
+        print("test1")
         self.tableView.reloadData()
 
         // Do any additional setup after loading the view.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
+        
         return vgArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
@@ -39,6 +49,11 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         let vc = Storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.getName = vgArray[indexPath.row][0]
         vc.getSales = vgArray[indexPath.row][1]
+        vc.getCompany = vgArray[indexPath.row][2]
+        vc.getYear = vgArray[indexPath.row][3]
+      
+        dataStore.set(indexPath.item, forKey: "selectedRowIndex")
+        print("select row : ", indexPath.item)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -52,6 +67,8 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         var vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
+
+        
         if editingStyle == .delete{
             // ask user to confirm
             let item = vgArray[indexPath.row]
@@ -78,6 +95,13 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
             
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        
+    }
+
+
     
     @IBAction func editAction(_ sender: UIBarButtonItem) {
         self.tableView.isEditing = !self.tableView.isEditing
@@ -86,4 +110,5 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     
 }
+
 
