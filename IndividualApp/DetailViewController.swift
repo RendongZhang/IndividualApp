@@ -25,7 +25,6 @@ class DetailViewController: UIViewController {
         Sales.text! =  getSales
         Company.text! = getCompany
         Year.text! = getYear
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func trashAction(_ sender: UIBarButtonItem) {
@@ -43,13 +42,7 @@ class DetailViewController: UIViewController {
             // remove the item from the store
             vgArray.remove(at: currentRowIndex)
             dataStore.set(vgArray, forKey: "vgArrs")
-            
-           dataStore.set(currentRowIndex, forKey: "deletedRowIndex")
-      
-            print("Delete row : ", currentRowIndex)
             self.navigationController?.popViewController(animated: true)
-//
-
         })
         ac.addAction(deleteAction)
         present(ac, animated: true, completion: nil)

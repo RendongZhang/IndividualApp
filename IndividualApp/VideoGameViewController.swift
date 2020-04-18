@@ -14,27 +14,15 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     var dataStore = UserDefaults.standard
     
     override func viewDidLoad() {
-//
-       
-
-//        self.tableView.reloadData()
-//        let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
-//        if vgArray.count < tableView.numberOfRows(inSection: 0){
-//
-//            tableView.deleteRows(at: [IndexPath(row: UserDefaults.standard.value(forKey: "deletedRow") as! Int, section: 0)], with: .automatic)
-//        }
-        print("test0")
         super.viewDidLoad()
-        print("test1")
         self.tableView.reloadData()
-
-        // Do any additional setup after loading the view.
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
-        
         return vgArray.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
             let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
@@ -43,6 +31,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
             cell.NumPlayers.text = vgArray[indexPath.row][1]
             return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vgArray = UserDefaults.standard.value(forKey: "vgArrs")as! [[String]]
         let Storyboard = UIStoryboard(name: "Main", bundle: nil)
