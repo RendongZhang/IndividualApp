@@ -29,18 +29,19 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
 
-            var itemStore = ItemStore()
+            let itemStore = ItemStore()
               let item = itemStore.allItems[indexPath.row]
               let cell = tableView.dequeueReusableCell(withIdentifier: "VideoGameCell", for: indexPath) as! Cell
             cell.Name.text = item.name
             cell.NumPlayers.text = item.sales
+            cell.Company.text = item.company
             return cell
                 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        var itemStore = ItemStore()
+        let itemStore = ItemStore()
           let item = itemStore.allItems[indexPath.row]
           let Storyboard = UIStoryboard(name: "Main", bundle: nil)
           let vc = Storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
@@ -58,7 +59,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
 
-        var itemStore = ItemStore()
+        let itemStore = ItemStore()
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
         itemStore.saveChanges()
         
@@ -69,7 +70,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         if editingStyle == .delete{
 
               // ask user to confirm
-            var itemStore = ItemStore()
+            let itemStore = ItemStore()
               let item = itemStore.allItems[indexPath.row]
             let title = "Delete \(item.name)?"
               let message = "Are you sure you want to delete this item?"
@@ -96,7 +97,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var itemStore = ItemStore()
+        _ = ItemStore()
         self.tableView.reloadData()
         
         

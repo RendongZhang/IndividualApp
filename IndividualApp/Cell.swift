@@ -13,7 +13,9 @@ class Cell: UITableViewCell{
  
     @IBOutlet weak var Name: UILabel!
     
+    @IBOutlet weak var Company: UILabel!
     @IBOutlet weak var NumPlayers: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
     @IBAction func trashAction(_ sender: UIBarButtonItem) {
 
         
-        var itemStore = ItemStore()
+        let itemStore = ItemStore()
 
        
         let title = "Delete ()?"
