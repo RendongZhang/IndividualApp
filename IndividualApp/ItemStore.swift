@@ -28,9 +28,13 @@ class ItemStore {
                 allItems = archivedData
             }
         } catch {
+            //create 4 example cells
             print("itemstore  initialized")
-            let item1 = Item(name: "1", sales: "2", company: "3", year: "33")
-            allItems = [item1]
+            let item1 = Item(name: "Shooting game", sales: "200", company: "RZ", year: "1998")
+            let item2 = Item(name: "Game1", sales: "100", company: "RDZ", year: "2020")
+            let item3 = Item(name: "VideoGame 2", sales: "12912", company: "Rendong", year: "2004")
+            let item4 = Item(name: "Role playing game ", sales: "123118", company: "Zhang", year: "2016")
+            allItems = [item1,item2,item3,item4]
         }
     }
 

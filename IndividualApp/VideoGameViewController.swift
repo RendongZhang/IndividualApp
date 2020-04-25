@@ -33,7 +33,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
               let item = itemStore.allItems[indexPath.row]
               let cell = tableView.dequeueReusableCell(withIdentifier: "VideoGameCell", for: indexPath) as! Cell
             cell.Name.text = item.name
-            cell.NumPlayers.text = item.sales
+            cell.NumPlayers.text = "$ " + item.sales
             cell.Company.text = item.company
             return cell
                 
