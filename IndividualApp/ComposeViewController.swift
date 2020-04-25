@@ -16,7 +16,8 @@ class ComposeViewController: UIViewController {
     
     @IBOutlet weak var yearTF: UITextField!
     
-    var dataStore = UserDefaults.standard
+    var itemStore = ItemStore()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,17 +37,12 @@ class ComposeViewController: UIViewController {
         salesTF.resignFirstResponder()
         companyTF.resignFirstResponder()
         yearTF.resignFirstResponder()
-        let item = [nameTF.text!, salesTF.text!, companyTF.text!, yearTF.text!]
-        if let arr = UserDefaults.standard.value(forKey: "vgArrs")as? [[String]]{
-            var allVGs = arr
-            allVGs.append(item)
-            dataStore.set(allVGs, forKey: "vgArrs")
-        }else{
-            var allVGs = vg
-            allVGs.append(item)
-            dataStore.set(allVGs, forKey: "vgArrs")
-        }
-        vg.append(item)
+
+        itemStore.createItem(nameTF.text!, salesTF.text!, companyTF.text!, yearTF.text!)
+        itemStore.saveChanges()
+        
+        print(itemStore.allItems)
+
         self.navigationController?.popViewController(animated: true)
         let vgViewController = self.navigationController?.topViewController as? VideoGameViewController
         vgViewController?.tableView?.reloadData()
