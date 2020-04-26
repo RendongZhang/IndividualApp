@@ -69,7 +69,7 @@ class ItemStore {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: allItems, requiringSecureCoding: false)
             try data.write(to:itemArchiveURL)
-            print(itemArchiveURL)
+          
            
         } catch {
             print("cannot save changes")

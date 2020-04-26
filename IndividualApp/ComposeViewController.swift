@@ -48,7 +48,7 @@ class ComposeViewController: UIViewController {
         itemStore.createItem(nameTF.text!, salesTF.text!, companyTF.text!, yearTF.text!)
         itemStore.saveChanges()
         
-        print(itemStore.allItems)
+       
 
         self.navigationController?.popViewController(animated: true)
         let vgViewController = self.navigationController?.topViewController as? VideoGameViewController

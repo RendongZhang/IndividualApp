@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
         Sales.text! =  getSales
         Company.text! = getCompany
         Year.text! = getYear
-         print("selected : ", selectedRowIndex)
+        
     }
     
     @IBAction func trashAction(_ sender: UIBarButtonItem) {
@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
         let itemStore = ItemStore()
 
        
-        let title = "Delete ()?"
+        let title = "Delete \(itemStore.allItems[selectedRowIndex].name)?"
         let message = "Are you sure you want to delete this item?"
         let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

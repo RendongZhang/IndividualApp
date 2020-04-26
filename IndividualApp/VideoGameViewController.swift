@@ -53,7 +53,7 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.selectedRowIndex = indexPath.row
         
           
-          print("select row : ", indexPath.item)
+          
           self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -99,8 +99,6 @@ class VideoGameViewController: UIViewController,UITableViewDelegate,UITableViewD
         super.viewWillAppear(animated)
         _ = ItemStore()
         self.tableView.reloadData()
-        
-        
         
     }
 
